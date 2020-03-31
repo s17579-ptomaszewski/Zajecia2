@@ -11,18 +11,24 @@ namespace Zajecia2.Controllers
     [Route("api/students")]
     public class StudentsController : ControllerBase
     {
-        /*
-         * HttpGet
-         * HttpPost
-         * HttpPut
-         * HttpPath
-         * HttpDelete
-         */
+        private string SqlConn = " Data Source=db-mssql;Initial Catalog=s17579;Integrated Security=True";
+        private readonly IStudentDbService _studentDbService;
+
+        public StudentsController(IStudentDbService studentDbService)
+        {
+            _studentDbService = studentDbService;
+        }
 
         [HttpGet]
-        public string GetStudents(string orderBy)
+        public IActionResult GetStudents()
         {
-            return $"Kowalski, Malewski, Nowak sortowanie={orderBy}";
+            return Ok(_studentDbService.GetStudents());
+        }
+
+        [HttpGet("{IndexNumber}")]
+        public IActionResult GetStudentEnrollmentInfo(String IndexNumber)
+        {
+            return Ok(_studentDbService.GetStudentEnrollmentInfo(IndexNumber));
         }
 
         [HttpPost]
@@ -46,20 +52,6 @@ namespace Zajecia2.Controllers
             return Ok("Usuwanie ukończone");
         }
 
-        [HttpGet("{id}")]
-        public IActionResult getStudentbyId(int id)
-        {
-            if (id == 1)
-            {
-                return Ok("Kowalski");
-            }
-            if(id == 2)
-            {
-                return Ok("Malewski");
-            }
 
-            return NotFound($"nie znaleziono studenta o id {id}");
-        }
-
-        }
     }
+}
