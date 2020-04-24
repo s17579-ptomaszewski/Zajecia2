@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Zajecia2.Models;
+using Zajecia2.Services;
 
 namespace Zajecia2
 {
@@ -26,6 +27,7 @@ namespace Zajecia2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IStudentDbService, StudentDbService>();
+            services.AddSingleton<IEnrollmentDbServices, EnrollmentDbServices>();
             services.AddControllers();
         }
 

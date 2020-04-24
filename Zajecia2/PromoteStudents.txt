@@ -1,0 +1,23 @@
+﻿CREATE OR REPLACE PROCEDURE promoteStudents(
+    _idEnrollment INT
+)
+    LANGUAGE plpgsql
+AS $$
+DECLARE 
+    _newIdEnrollment INT;
+    _idStudy INT;
+    _semester INT;
+BEGIN
+    select idstudy, semester INTO _idStudy, _semester FROM enrollment WHERE idenrollment = _idEnrollment;
+    
+    insert into Enrollment(IdStudy, Semester, StartDate)
+    values (_idStudy, _semester + 1, NOW()) 
+    ON CONFLICT(idstudy, semester) DO UPDATE SET semester = excluded.Semester
+    RETURNING idEnrollment INTO _newIdEnrollment;
+    
+    UPDATE Student 
+    SET idEnrollment = _newIdEnrollment
+    WHERE idEnrollment = _idEnrollment;
+
+    COMMIT;
+END;

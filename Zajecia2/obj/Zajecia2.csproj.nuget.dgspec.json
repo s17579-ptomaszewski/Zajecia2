@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PatrykTomaszewski\\Zajecia2\\Zajecia2\\Zajecia2.csproj": {}
+    "C:\\Users\\PatrykTomaszewski\\source\\repos\\Zajecia2\\Zajecia2\\Zajecia2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PatrykTomaszewski\\Zajecia2\\Zajecia2\\Zajecia2.csproj": {
+    "C:\\Users\\PatrykTomaszewski\\source\\repos\\Zajecia2\\Zajecia2\\Zajecia2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PatrykTomaszewski\\Zajecia2\\Zajecia2\\Zajecia2.csproj",
+        "projectUniqueName": "C:\\Users\\PatrykTomaszewski\\source\\repos\\Zajecia2\\Zajecia2\\Zajecia2.csproj",
         "projectName": "Zajecia2",
-        "projectPath": "C:\\Users\\PatrykTomaszewski\\Zajecia2\\Zajecia2\\Zajecia2.csproj",
+        "projectPath": "C:\\Users\\PatrykTomaszewski\\source\\repos\\Zajecia2\\Zajecia2\\Zajecia2.csproj",
         "packagesPath": "C:\\Users\\PatrykTomaszewski\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PatrykTomaszewski\\Zajecia2\\Zajecia2\\obj\\",
+        "outputPath": "C:\\Users\\PatrykTomaszewski\\source\\repos\\Zajecia2\\Zajecia2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
