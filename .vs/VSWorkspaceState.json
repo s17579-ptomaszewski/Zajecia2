@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Zajecia2"
+    "\\Zajecia2",
+    "\\Zajecia2\\bin",
+    "\\Zajecia2\\Controllers",
+    "\\Zajecia2\\Models",
+    "\\Zajecia2\\obj"
   ],
-  "SelectedNode": "\\Zajecia2.sln",
+  "SelectedNode": "\\Zajecia2\\Models\\Enrollment.cs",
   "PreviewInSolutionExplorer": false
 }
