@@ -1,23 +1,31 @@
-﻿CREATE OR REPLACE PROCEDURE promoteStudents(
-    _idEnrollment INT
-)
-    LANGUAGE plpgsql
-AS $$
-DECLARE 
-    _newIdEnrollment INT;
-    _idStudy INT;
-    _semester INT;
-BEGIN
-    select idstudy, semester INTO _idStudy, _semester FROM enrollment WHERE idenrollment = _idEnrollment;
-    
-    insert into Enrollment(IdStudy, Semester, StartDate)
-    values (_idStudy, _semester + 1, NOW()) 
-    ON CONFLICT(idstudy, semester) DO UPDATE SET semester = excluded.Semester
-    RETURNING idEnrollment INTO _newIdEnrollment;
-    
-    UPDATE Student 
-    SET idEnrollment = _newIdEnrollment
-    WHERE idEnrollment = _idEnrollment;
-
-    COMMIT;
-END;
+﻿Alter procedure PromoteStudents
+@studies varchar(32),
+@semester int
+as
+begin
+declare 
+@studiesid int,
+@idenrollment1 int,
+@idenrollment int;
+select @studiesid=IdStudy from Studies where Studies.Name=@studies;
+    if @studiesid is not null
+        begin
+            select @idenrollment=IdEnrollment from Enrollment where IdStudy=@studiesid and Semester=@semester;
+            select @idenrollment1=IdEnrollment from Enrollment where IdStudy=@studiesid and Semester=@semester+1;
+                if @idenrollment1 is not null
+                    begin
+                        update Student set IdEnrollment=@idenrollment1 where IdEnrollment=@idenrollment;
+                    end
+                else
+                    begin
+                        declare 
+                        @nextid int
+                        select @nextid=MAX(IdEnrollment)+1 from Enrollment;
+                        insert into Enrollment (IdEnrollment, Semester, IdStudy, StartDate) 
+                          values (@nextid, @semester+1,@studiesid,GETDATE());
+                        update Student set IdEnrollment=@nextid where IdEnrollment=@idenrollment;
+end
+Select * from Enrollment where IdEnrollment=@idenrollment;
+end
+else
+end 

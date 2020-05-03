@@ -135,7 +135,9 @@ namespace Zajecia2.Services
             PromoteStudentsResponse response = null;
             Enrollment respEnrollment = new Enrollment();
 
-            using (SqlConnection conn = new SqlConnection(ConnString))
+
+
+            using (SqlConnection conn = new SqlConnection(SqlConn))
             {
                 conn.Open();
 
@@ -145,8 +147,8 @@ namespace Zajecia2.Services
 
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@StudyName", request.Studies));
-                cmd.Parameters.Add(new SqlParameter("@Semester", request.Semester));
+                cmd.Parameters.Add(new SqlParameter("@studies", request.Studies));
+                cmd.Parameters.Add(new SqlParameter("@semester", request.Semester));
 
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {

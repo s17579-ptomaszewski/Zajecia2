@@ -8,18 +8,17 @@ namespace Zajecia2.Models
 {
     public class StudentDbService : IStudentDbService
     {
-        private string SqlConn =" Data Source=db-mssql;Initial Catalog=s17579;Integrated Security=True";
+        private string SqlConn ="Data Source=db-mssql;Initial Catalog=s17579;Integrated Security=True";
 
         public IEnumerable<Student> GetStudents()
         {
             var output = new List<Student>();
             using (var client = new SqlConnection(SqlConn))
-            {
-                using (var command = new SqlCommand())
+            using (var command = new SqlCommand())
                 {
                     command.Connection = client;
                     command.CommandText = " Select * From Student";
-
+                
                     client.Open();
                     var dr = command.ExecuteReader();
 
@@ -35,7 +34,7 @@ namespace Zajecia2.Models
                         });
                     }
                 }
-            }
+            
             return output;
         }
         public IEnumerable<Enrollment> GetStudentEnrollmentInfo(String IndexNumber)          

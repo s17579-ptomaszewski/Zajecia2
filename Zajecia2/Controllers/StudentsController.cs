@@ -11,7 +11,7 @@ namespace Zajecia2.Controllers
     [Route("api/students")]
     public class StudentsController : ControllerBase
     {
-        private string SqlConn = " Data Source=db-mssql;Initial Catalog=s17579;Integrated Security=True";
+        private string SqlConn = "Data Source=db-mssql;Initial Catalog=s17579;Integrated Security=True";
         private readonly IStudentDbService _studentDbService;
 
         public StudentsController(IStudentDbService studentDbService)
