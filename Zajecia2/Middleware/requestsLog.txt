@@ -1,0 +1,28 @@
+GET/
+
+POST/api/enrollments/{
+"IndexNumber": "s1234",
+"FirstName": "Andrzej",
+"LastName": "Malewski",
+"BirthDate": "30.03.1993",
+"Studies": "PPJ"
+}
+
+GET/favicon.ico
+
+POST/api/enrollments/{
+"IndexNumber": "s1234",
+"FirstName": "Andrzej",
+"LastName": "Malewski",
+"BirthDate": "30.03.1993",
+"Studies": "PPJ"
+}
+
+POST/api/enrollments/{
+"IndexNumber": "s1234",
+"FirstName": "Andrzej",
+"LastName": "Malewski",
+"BirthDate": "30.03.1993",
+"Studies": "PPJ"
+}
+

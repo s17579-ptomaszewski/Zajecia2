@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m5EMdUJ6wy9FbUFaUZ79oIjOq0wrtnE8nkKbhKwI9xAbPq41eUpgqxQaOXfhvEu5mY6ORHSHXsQ/wH4xzy+BsA==",
+  "dgSpecHash": "xivwbyELePryi1uQpBVLEMtI2fdJHl0izScYUFTM795qwvb4a78rWtW3Js9b6Eq1A4x7dyEJhG5xbdhaOmhXHA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PatrykTomaszewski\\source\\repos\\zadanie5\\Zajecia2\\Zajecia2.csproj",
+  "projectFilePath": "C:\\Users\\PatrykTomaszewski\\Source\\Repos\\zadanie5\\Zajecia2\\Zajecia2.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

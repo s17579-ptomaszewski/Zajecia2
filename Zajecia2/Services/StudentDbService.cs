@@ -67,6 +67,9 @@ namespace Zajecia2.Models
             return output;
         }
 
-     
+        public Student GetStudent(string IndexNumber)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

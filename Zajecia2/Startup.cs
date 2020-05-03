@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Zajecia2.Middleware;
 using Zajecia2.Models;
 using Zajecia2.Services;
 
@@ -38,6 +40,27 @@ namespace Zajecia2
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseMiddleware<LoggingMiddleware>();
+            app.Use(async (context, next) =>
+            {
+                if(!context.Request.Headers.ContainsKey("Index"))
+                {
+                    context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                    await context.Response.WriteAsync("Musisz podac index");
+                    return;
+                }
+                var index = context.Request.Headers["Index"].ToString();
+
+                CheckIndexDbService checkIndexDbService = new CheckIndexDbService();
+                if(!checkIndexDbService.CheckIndex(index))
+                {
+                    await context.Response.WriteAsync("Brak indexu w bazie");
+                    return;
+                }
+                 context.Response.WriteAsync("Ok");
+
+                await next();
+            });
 
             app.UseRouting();
 

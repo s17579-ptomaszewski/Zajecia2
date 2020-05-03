@@ -10,5 +10,7 @@ namespace Zajecia2.Models
     {
         public IEnumerable<Student> GetStudents();
         public IEnumerable<Enrollment> GetStudentEnrollmentInfo(String id);
+
+        Student GetStudent(string IndexNumber);
     }
 }
